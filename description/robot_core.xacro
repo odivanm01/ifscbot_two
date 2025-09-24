@@ -4,19 +4,27 @@
     <xacro:include filename="inertial_macros.xacro"/>
 
 
-    <xacro:property name="chassis_length" value="0.335"/>
-    <xacro:property name="chassis_width" value="0.265"/>
-    <xacro:property name="chassis_height" value="0.138"/>
-    <xacro:property name="chassis_mass" value="1.0"/>
-    <xacro:property name="wheel_radius" value="0.033"/>
-    <xacro:property name="wheel_thickness" value="0.026"/>
-    <xacro:property name="wheel_mass" value="0.05"/>
-    <xacro:property name="wheel_offset_x" value="0.226"/>
-    <xacro:property name="wheel_offset_y" value="0.1485"/>
-    <xacro:property name="wheel_offset_z" value="0.01"/>
-    <xacro:property name="caster_wheel_radius" value="0.01"/>
-    <xacro:property name="caster_wheel_mass" value="0.01"/>
-    <xacro:property name="caster_wheel_offset_x" value="0.075"/>
+    <xacro:property name="chassis_length" value="0.422"/><!--comprimento chassis-->
+    <xacro:property name="chassis_width" value="0.330"/><!--largura chassis-->
+    <xacro:property name="chassis_height" value="0.100"/><!--altura chassis-->
+    <xacro:property name="chassis_mass" value="6.000"/><!--massa chassis total 7.15 kg-->
+    <xacro:property name="wheel_radius" value="0.050"/><!--raio roda-->
+    <xacro:property name="wheel_thickness" value="0.027"/><!--espessura roda-->
+    <xacro:property name="wheel_mass" value="0.525"/><!--massa roda-->
+    <xacro:property name="wheel_radius_b" value="0.013"/><!--raio roda interior-->
+    <xacro:property name="wheel_thickness_b" value="0.043"/><!--espessura roda interior-->
+    <xacro:property name="wheel_offset_x" value="0.368"/><!--offset roda X-->
+    <xacro:property name="wheel_offset_y" value="0.213"/><!--offset roda Y-->
+    <xacro:property name="wheel_offset_z" value="-0.010"/><!--offset roda Z-->
+    <xacro:property name="axis_radius" value="0.008"/><!--raio eixo-->
+    <xacro:property name="axis_thickness" value="0.480"/><!--espessura eixo-->
+    <xacro:property name="axis_mass" value="0.100"/><!--massa eixo-->
+    <xacro:property name="axis_offset_x" value="0.368"/><!--offset eixo X-->
+    <xacro:property name="axis_offset_y" value="0.000"/><!--offset eixo Y-->
+    <xacro:property name="axis_offset_z" value="-0.010"/><!--offset eixo Z-->
+    <xacro:property name="caster_wheel_radius" value="0.030"/><!--raio roda livre-->
+    <xacro:property name="caster_wheel_mass" value="0.100"/><!--massa roda livre-->
+    <xacro:property name="caster_wheel_offset_x" value="0.031"/><!--offset roda livre X-->
     <xacro:property name="caster_wheel_offset_z" value="${wheel_offset_z - wheel_radius + caster_wheel_radius}"/>
 
     <material name="white">
@@ -39,6 +47,7 @@
         <color rgba="1 0 0 1"/>
     </material>
 
+   
     <!-- BASE LINK -->
 
     <link name="base_link">
@@ -71,7 +80,7 @@
             <geometry>
                 <box size="${chassis_length} ${chassis_width} ${chassis_height}"/>
             </geometry>
-            <material name="orange"/>
+            <material name="black"/>
         </visual>
         <collision>
             <origin xyz="${chassis_length/2} 0 ${chassis_height/2}"/>
@@ -85,8 +94,11 @@
     </link>
 
     <gazebo reference="chassis">
-        <material>Gazebo/Orange</material>
+        <material>Gazebo/Black</material>
     </gazebo>
+
+
+
 
     <!-- LEFT WHEEL LINK -->
 
@@ -102,7 +114,14 @@
             <geometry>
                 <cylinder radius="${wheel_radius}" length="${wheel_thickness}"/>
             </geometry>
-            <material name="blue"/>
+            <material name="black"/>
+        </visual>
+        <visual>
+            <origin xyz="0 0 0"/>
+            <geometry>
+                <cylinder radius="${wheel_radius_b}" length="${wheel_thickness_b}"/>
+            </geometry>
+            <material name="black"/>
         </visual>
         <collision>
             <geometry>
@@ -115,7 +134,7 @@
     </link>
 
     <gazebo reference="left_wheel">
-        <material>Gazebo/Blue</material>
+        <material>Gazebo/Black</material>
     </gazebo>
 
 
@@ -135,7 +154,14 @@
             <geometry>
                 <cylinder radius="${wheel_radius}" length="${wheel_thickness}"/>
             </geometry>
-            <material name="blue"/>
+            <material name="black"/>
+        </visual>
+        <visual>
+            <origin xyz="0 0 0"/>
+            <geometry>
+                <cylinder radius="${wheel_radius_b}" length="${wheel_thickness_b}"/>
+            </geometry>
+            <material name="black"/>
         </visual>
         <collision>
             <geometry>
@@ -148,8 +174,44 @@
     </link>
 
     <gazebo reference="right_wheel">
+        <material>Gazebo/Black</material>
+    </gazebo>
+
+
+
+
+    <!-- AXIS LINK -->
+
+    <joint name="axis_joint" type="fixed">
+        <parent link="base_link"/>
+        <child link="axis"/>
+        <origin xyz="0 ${-axis_offset_y} 0" rpy="${pi/2} 0 0" />
+        <axis xyz="0 0 -1"/>
+    </joint>
+
+    <link name="axis">
+        <visual>
+            <geometry>
+                <cylinder radius="${axis_radius}" length="${axis_thickness}"/>
+            </geometry>
+            <material name="blue"/>
+        </visual>
+        <collision>
+            <geometry>
+                <sphere radius="${axis_radius}"/>
+            </geometry>
+        </collision>
+        <xacro:inertial_cylinder mass="${axis_mass}" length="${axis_thickness}" radius="${axis_radius}">
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+        </xacro:inertial_cylinder>
+    </link>
+
+    <gazebo reference="axis">
         <material>Gazebo/Blue</material>
     </gazebo>
+
+
+
 
 
     <!-- CASTER WHEEL LINK -->
