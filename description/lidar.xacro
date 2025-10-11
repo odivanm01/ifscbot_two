@@ -36,13 +36,11 @@
     <gazebo reference="laser_frame">
         <material>Gazebo/Blue</material>
 
-        <sensor name="laser" type="ray">
+        <sensor name="laser" type="gpu_lidar">
             <pose>0 0 0 0 0 0</pose>
-            <always_on>true</always_on>
             <visualize>true</visualize>
             <update_rate>10</update_rate>
-
-            <ray>
+            <lidar>
                 <scan>
                     <horizontal>
                         <samples>360</samples>
@@ -54,15 +52,9 @@
                     <min>0.3</min>
                     <max>12</max>
                 </range>
-            </ray>
-
-            <plugin name="gz_ros_laser" filename="libgz_ros2_laser.so">
-                <ros>
-                    <argument>~/out:=/scan</argument>
-                </ros>
-                <output_type>sensor_msgs/LaserScan</output_type>
-                <frame_name>laser_frame</frame_name>
-            </plugin>
+            </lidar>
+            <topic>scan</topic>
+            <gz_frame_id>laser_frame</gz_frame_id>
         </sensor>
     </gazebo>
 
