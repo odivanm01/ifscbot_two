@@ -1,4 +1,4 @@
-import os
+"""import os
 from launch import LaunchDescription
 from launch_ros.actions import Node
 
@@ -17,4 +17,26 @@ def generate_launch_description():
                 'scan_mode': 'Standard'
             }]
         )
+    ])"""
+
+import os
+from launch import LaunchDescription
+from launch_ros.actions import Node
+
+def generate_launch_description():
+    return LaunchDescription([
+
+        Node(
+            package='rplidar_ros',
+            executable='rplidar_composition',
+            output='screen',
+            parameters=[{
+                'serial_port': '/dev/ttyUSB0',   # caminho direto
+                'serial_baudrate': 115200,       # ajuste conforme modelo do LIDAR
+                'frame_id': 'laser_frame',
+                'angle_compensate': True,
+                'scan_mode': 'Standard'
+            }]
+        )
     ])
+
