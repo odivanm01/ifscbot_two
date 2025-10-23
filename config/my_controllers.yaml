@@ -11,6 +11,7 @@ controller_manager:
 
 diff_cont:
   ros__parameters:
+    #tipe: "diffdrive_arduino/DiffDriveArduinoHardware"
 
     publish_rate: 50.0
 

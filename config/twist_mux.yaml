@@ -1,6 +1,7 @@
 twist_mux:
   ros__parameters:
-    use_stamped: false
+    use_stamped: true
+    output_topic: cmd_vel_out
     topics:
       navigation:
         topic   : cmd_vel

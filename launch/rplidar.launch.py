@@ -31,7 +31,7 @@ def generate_launch_description():
             executable='rplidar_composition',
             output='screen',
             parameters=[{
-                'serial_port': '/dev/ttyUSB0',   # caminho direto
+                'serial_port': '/dev/ttyUSB1',   # caminho direto
                 'serial_baudrate': 115200,       # ajuste conforme modelo do LIDAR
                 'frame_id': 'laser_frame',
                 'angle_compensate': True,
