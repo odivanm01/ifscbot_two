@@ -61,7 +61,7 @@ def generate_launch_description():
 
     # Define o caminho para o arquivo de configuração do Rviz
     rviz_config_file = PathJoinSubstitution(
-        [FindPackageShare(package_name), "config", "main.rviz"]
+        [FindPackageShare(package_name), "config", "map.rviz"]
     )
 
     # Cria o nó do Rviz2

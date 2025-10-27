@@ -32,7 +32,7 @@ def generate_launch_description():
                 )]), launch_arguments={'use_sim_time': 'true'}.items()
     )
 
-    twist_mux_params = os.path.join(get_package_share_directory(package_name),'config','twist_mux.yaml')
+    twist_mux_params = os.path.join(get_package_share_directory(package_name),'config','twist_mux_sim.yaml')
     twist_mux = Node(
             package="twist_mux",
             executable="twist_mux",
@@ -73,7 +73,7 @@ def generate_launch_description():
     diff_drive_spawner = Node(
         package="controller_manager",
         executable="spawner",
-        arguments=["diff_cont"],
+        arguments=["diff_cont"], 
     )
 
     joint_broad_spawner = Node(
