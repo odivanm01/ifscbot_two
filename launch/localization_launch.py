@@ -64,7 +64,7 @@ def generate_launch_description():
 
         DeclareLaunchArgument(
             'map',
-            default_value=os.path.join(bringup_dir, 'maps', 'mapa_L.yaml'),#turtlebot3_world.yaml
+            default_value=os.path.join(bringup_dir, 'maps', 'mapa_corredor_quarto_andar.yaml'),#turtlebot3_world.yaml
             description='Full path to map yaml file to load'),
 
         DeclareLaunchArgument(
