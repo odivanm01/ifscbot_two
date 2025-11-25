@@ -20,16 +20,16 @@ slam_toolbox:
     # if you'd like to immediately start continuing a map at a given pose
     # or at the dock, but they are mutually exclusive, if pose is given
     # will use pose
-    map_file_name: /home/dev_ws/mapa_corredor_quarto_andar.yaml
-    map_start_pose: [0.0, 0.0, 0.0]
+    map_file_name: /home/odivan/dev_ws/mapa_teste_A
+    #map_start_pose: [0.0, 0.0, 0.0]
     map_start_at_dock: true
 
     debug_logging: false
     throttle_scans: 1
     transform_publish_period: 0.02 #if 0 never publishes odometry
     map_update_interval: 5.0
-    resolution: 0.05
-    max_laser_range: 20.0 #for rastering images
+    resolution: 0.05 #ESSE FOI ALTERADO valor original 0.05
+    max_laser_range: 12.0 #for rastering images #ESSE FOI ALTERADO valor original 20.0
     minimum_time_interval: 0.5
     transform_timeout: 0.2
     tf_buffer_duration: 30.
@@ -39,8 +39,8 @@ slam_toolbox:
     # General Parameters
     use_scan_matching: true
     use_scan_barycenter: true
-    minimum_travel_distance: 0.5
-    minimum_travel_heading: 0.5
+    minimum_travel_distance: 0.5  #ESSE FOI ALTERADO valor original 0.5
+    minimum_travel_heading: 0.5   #ESSE FOI ALTERADO valor original 0.5
     scan_buffer_size: 10
     scan_buffer_maximum_scan_distance: 10.0
     link_match_minimum_response_fine: 0.1  
@@ -48,9 +48,9 @@ slam_toolbox:
     loop_search_maximum_distance: 3.0
     do_loop_closing: true 
     loop_match_minimum_chain_size: 10           
-    loop_match_maximum_variance_coarse: 3.0  
-    loop_match_minimum_response_coarse: 0.35    
-    loop_match_minimum_response_fine: 0.45
+    loop_match_maximum_variance_coarse: 3.0     #ESSE FOI ALTERADO valor original 3.0
+    loop_match_minimum_response_coarse: 0.35    #ESSE FOI ALTERADO valor original 0.35
+    loop_match_minimum_response_fine: 0.45      #ESSE FOI ALTERADO valor original 0.45
 
     # Correlation Parameters - Correlation Parameters
     correlation_search_space_dimension: 0.5
@@ -59,7 +59,7 @@ slam_toolbox:
 
     # Correlation Parameters - Loop Closure Parameters
     loop_search_space_dimension: 8.0
-    loop_search_space_resolution: 0.05
+    loop_search_space_resolution: 0.05 #ESSE FOI ALTERADO valor original 0.05
     loop_search_space_smear_deviation: 0.03
 
     # Scan Matcher Parameters

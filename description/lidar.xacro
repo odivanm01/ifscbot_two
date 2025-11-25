@@ -15,7 +15,7 @@
             <material name="blue"/>
         </visual>
         <visual>
-            <origin xyz="-0.014 0 -0.019"/>
+            <origin xyz="0.014 0 -0.019"/>
             <geometry>
                 <cylinder radius="0.052" length="0.038"/>
             </geometry>

@@ -22,12 +22,13 @@ def generate_launch_description():
                 )]), launch_arguments={'use_sim_time': 'false', 'use_ros2_control': 'true'}.items()
     )
 
+
     # (Joystick está comentado, ok)
-    # joystick = IncludeLaunchDescription(
-    #             PythonLaunchDescriptionSource([os.path.join(
-    #                 get_package_share_directory(package_name),'launch','joystick.launch.py'
-    #             )])
-    # )
+    joystick = IncludeLaunchDescription(
+                PythonLaunchDescriptionSource([os.path.join(
+                    get_package_share_directory(package_name),'launch','joystick.launch.py'
+                )])
+    )
 
     # 2. Inclui o Twist Mux (Multiplexador de Velocidade)
     # CORRETO: O notebook vai receber comandos (teleop, etc)
@@ -76,7 +77,7 @@ def generate_launch_description():
     # Lista final de nós para lançar no NOTEBOOK
     return LaunchDescription([
         rsp,
-        # joystick,
+        joystick,
         twist_mux,
         teleop_node,
         rviz_node
