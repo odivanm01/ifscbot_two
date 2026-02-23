@@ -4,27 +4,27 @@
     <xacro:include filename="inertial_macros.xacro"/>
 
 
-    <xacro:property name="chassis_length" value="0.422"/><!--comprimento chassis-->
-    <xacro:property name="chassis_width" value="0.330"/><!--largura chassis-->
-    <xacro:property name="chassis_height" value="0.100"/><!--altura chassis-->
-    <xacro:property name="chassis_mass" value="6.000"/><!--massa chassis total 7.15 kg-->
-    <xacro:property name="wheel_radius" value="0.050"/><!--raio roda-->
-    <xacro:property name="wheel_thickness" value="0.027"/><!--espessura roda-->
-    <xacro:property name="wheel_mass" value="0.525"/><!--massa roda-->
-    <xacro:property name="wheel_radius_b" value="0.013"/><!--raio roda interior-->
-    <xacro:property name="wheel_thickness_b" value="0.043"/><!--espessura roda interior-->
-    <xacro:property name="wheel_offset_x" value="0.368"/><!--offset roda X-->
-    <xacro:property name="wheel_offset_y" value="0.213"/><!--offset roda Y-->
-    <xacro:property name="wheel_offset_z" value="-0.010"/><!--offset roda Z-->
-    <xacro:property name="axis_radius" value="0.008"/><!--raio eixo-->
-    <xacro:property name="axis_thickness" value="0.480"/><!--espessura eixo-->
-    <xacro:property name="axis_mass" value="0.100"/><!--massa eixo-->
-    <xacro:property name="axis_offset_x" value="0.368"/><!--offset eixo X-->
-    <xacro:property name="axis_offset_y" value="0.000"/><!--offset eixo Y-->
-    <xacro:property name="axis_offset_z" value="-0.010"/><!--offset eixo Z-->
-    <xacro:property name="caster_wheel_radius" value="0.030"/><!--raio roda livre-->
-    <xacro:property name="caster_wheel_mass" value="0.100"/><!--massa roda livre-->
-    <xacro:property name="caster_wheel_offset_x" value="0.031"/><!--offset roda livre X-->
+    <xacro:property name="chassis_length" value="0.422"/>                       <!--comprimento chassis-->
+    <xacro:property name="chassis_width" value="0.330"/>                        <!--largura chassis-->
+    <xacro:property name="chassis_height" value="0.100"/>               <!--altura chassis-->
+    <xacro:property name="chassis_mass" value="6.000"/>             <!--massa chassis total 7.15 kg-->
+    <xacro:property name="wheel_radius" value="0.050"/>                     <!--raio roda-->
+    <xacro:property name="wheel_thickness" value="0.027"/>                  <!--espessura roda-->
+    <xacro:property name="wheel_mass" value="0.525"/>               <!--massa roda-->
+    <xacro:property name="wheel_radius_b" value="0.013"/>               <!--raio roda interior-->
+    <xacro:property name="wheel_thickness_b" value="0.043"/>                <!--espessura roda interior-->
+    <xacro:property name="wheel_offset_x" value="0.368"/>               <!--offset roda X-->
+    <xacro:property name="wheel_offset_y" value="0.213"/>               <!--offset roda Y-->
+    <xacro:property name="wheel_offset_z" value="-0.010"/>              <!--offset roda Z-->
+    <xacro:property name="axis_radius" value="0.008"/>              <!--raio eixo-->
+    <xacro:property name="axis_thickness" value="0.480"/>               <!--espessura eixo-->
+    <xacro:property name="axis_mass" value="0.100"/>                <!--massa eixo-->
+    <xacro:property name="axis_offset_x" value="0.368"/>                <!--offset eixo X-->
+    <xacro:property name="axis_offset_y" value="0.000"/>                <!--offset eixo Y-->
+    <xacro:property name="axis_offset_z" value="-0.010"/>               <!--offset eixo Z-->
+    <xacro:property name="caster_wheel_radius" value="0.030"/>          <!--raio roda livre-->
+    <xacro:property name="caster_wheel_mass" value="0.100"/>            <!--massa roda livre-->
+    <xacro:property name="caster_wheel_offset_x" value="0.031"/>            <!--offset roda livre X-->
     <xacro:property name="caster_wheel_offset_z" value="${wheel_offset_z - wheel_radius + caster_wheel_radius}"/>
 
     <material name="white">
